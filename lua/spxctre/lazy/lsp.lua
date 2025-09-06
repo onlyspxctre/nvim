@@ -17,6 +17,8 @@ vim.diagnostic.config({
     }
 })
 
+vim.lsp.set_log_level("off")
+
 for path in require('spxctre.lib').list_dir((vim.fn.stdpath('config') .. '/lsp')) do
     vim.lsp.enable(string.sub(path, 1, string.find(path, '.lua') - 1))
 end
