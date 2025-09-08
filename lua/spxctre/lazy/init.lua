@@ -16,6 +16,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "netrwPlugin",
+                "matchparen",
+            },
+        },
+    },
     spec = {
         { import = "spxctre.plugins" }
     },
