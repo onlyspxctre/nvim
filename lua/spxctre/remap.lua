@@ -3,6 +3,10 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", function() vim.cmd.Ex() end)
 vim.keymap.set("n", "<leader>pd", ":lcd " .. vim.fn.getcwd() .. "/")
 
+-- Improved vertical movements with wrapped lines
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true})
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true})
+
 -- Moving selected line
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
