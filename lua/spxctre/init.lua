@@ -1,4 +1,7 @@
 require('spxctre.remap')
 require('spxctre.set')
-require('spxctre.window')
+
 require('spxctre.lazy')
+
+-- Autocmds depend on plugins loaded from lazy
+require('spxctre.window')
