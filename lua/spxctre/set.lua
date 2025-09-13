@@ -2,6 +2,11 @@ vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 
+vim.opt.showbreak = "󱞤 "
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "shift:-2"
+vim.opt.cpoptions:append('n')
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -12,7 +17,6 @@ vim.opt.expandtab = true
 
 vim.opt.list = true
 vim.opt.listchars = "trail:·"
-vim.opt.showbreak = "󱞤"
 
 vim.opt.smartindent = true
 -- vim.opt.wrap = false
