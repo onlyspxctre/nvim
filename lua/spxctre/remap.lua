@@ -26,18 +26,15 @@ vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 
 -- Dehiglight the search pattern
+vim.keymap.set("n", "/", [[:noh<CR>/]], { noremap = true } )
 vim.keymap.set("n", "<leader>/", [[:noh<CR>]])
 
 -- No fucking idea
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
-vim.keymap.set("x", "<leader>P", [["_dP]])
-
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- delete into the _ register (do not cut)
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
