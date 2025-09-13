@@ -25,6 +25,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "}", "}zz")
 
+-- Dehiglight the search pattern
+vim.keymap.set("n", "<leader>/", [[:noh<CR>]])
+
 -- No fucking idea
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
