@@ -28,7 +28,7 @@ local opts = {
         { import = "spxctre.plugins" }
     },
     install = {
-        colorscheme = { "rose-pine" },
+        -- colorscheme = { "gruber-darker" },
     },
     defaults = { lazy = true },
     checker = { enabled = false },

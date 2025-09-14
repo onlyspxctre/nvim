@@ -173,7 +173,7 @@ return {
         vim.keymap.set('n', '<leader>pc', function()
             window.clear()
             colorscheme({
-                ignore_builtins = false,
+                ignore_builtins = true,
                 enable_preview = true,
             })
         end)

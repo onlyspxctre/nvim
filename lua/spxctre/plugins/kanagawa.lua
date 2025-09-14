@@ -209,7 +209,5 @@ return {
             },
         }
         table.insert(require('spxctre.color').installed, 'kanagawa')
-
-        color.set("kanagawa-dragon")
     end
 }
