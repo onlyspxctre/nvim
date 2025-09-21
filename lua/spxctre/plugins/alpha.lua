@@ -1,7 +1,6 @@
 return {
     "goolord/alpha-nvim",
     event = "UIEnter",
-    -- lazy = false,
     config = function()
         local alpha = require('alpha')
 
@@ -143,7 +142,6 @@ return {
                 noautocmd = false,
             },
         }
-
         alpha.setup(config)
         vim.cmd.Alpha()
 

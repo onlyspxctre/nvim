@@ -208,7 +208,6 @@ return {
         },
     },
     event = "UIEnter",
-    -- lazy = false,
     config = function(_, opts)
         local oil = require('oil')
         local window = require('spxctre.window')

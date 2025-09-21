@@ -21,6 +21,11 @@ local opts = {
             disabled_plugins = {
                 "netrwPlugin",
                 "matchparen",
+                "gzip",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
             },
         },
     },
@@ -32,11 +37,17 @@ local opts = {
     },
     defaults = { lazy = true },
     checker = { enabled = false },
+    change_detection = {
+        notify = false,
+    },
     ui = {
         title = "Lazy.nvim",
         backdrop = 100,
         border = "rounded"
-    }
+    },
+    profiling = {
+        require = true
+    },
 }
 
 require('lazy').setup(opts)
