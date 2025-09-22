@@ -1,6 +1,7 @@
 local M = {
     installed = {},
-    colorscheme_hl_groups = {}
+    colorscheme_hl_groups = {},
+    default = "gruber-darker",
 }
 
 function M.set(colorscheme, hl_group)
@@ -26,6 +27,12 @@ function M.update_hl(hl_groups)
             local opts = vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = group }), hl_group_group.opts)
             vim.api.nvim_set_hl(0, group, opts)
         end
+    end
+end
+
+function M.setup()
+    if vim.tbl_contains(vim.fn.getcompletion("", "color"), M.default) then
+        M.set(M.default)
     end
 end
 
