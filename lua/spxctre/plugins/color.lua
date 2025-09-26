@@ -566,7 +566,7 @@ return {
                 {
                     groups = "AlphaArt",
                     opts = {
-                        link = "DevIconMl"
+                        fg = "#E37933",
                     }
                 },
                 {
