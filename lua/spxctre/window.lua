@@ -18,17 +18,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     end
 })
 
-vim.api.nvim_create_autocmd({ "filetype" }, {
-    pattern = { "cpp", "c" },
-    callback = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-
-        vim.defer_fn(function()
-            vim.treesitter.start(bufnr)
-        end, 20)
-    end
-})
-
 local M = {}
 
 function M.clear()
