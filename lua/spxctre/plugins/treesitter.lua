@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = "UIEnter",
+    event = "VeryLazy", -- workaround to make highlighting non-blocking for UI
     branch = "master",
     build = ":TSUpdate",
     opts = {
