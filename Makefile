@@ -3,7 +3,7 @@
 name := spxctre
 
 build:
-	gcc -shared -fPIC -Wall -Wextra -std=c99 -o ./lua_modules/lib${name}.so ${name}.c
+	gcc -shared -fPIC -Wall -Wextra -std=c99 -o ./modules/lib${name}.so ${name}.c
 
 clean:
-	rm ./lua_modules/lib${name}.so
+	rm ./modules/lib${name}.so
