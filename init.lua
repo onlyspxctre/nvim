@@ -1,4 +1,4 @@
-package.cpath = package.cpath .. ";./modules/?.so;"
+package.cpath = package.cpath .. ";" .. vim.fn.stdpath('config') .. "/modules/?.so;"
 
 spxctre = require("libspxctre")
 
