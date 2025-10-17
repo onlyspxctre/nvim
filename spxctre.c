@@ -1,23 +1,8 @@
-#define LUA_LIB
-
-#include <luajit-2.1/lauxlib.h>
-#include <luajit-2.1/lua.h>
-#include <luajit-2.1/lualib.h>
+#include "vimlib.h"
 #include <stdio.h>
 
-static int Ex(lua_State* L) {
-    lua_getglobal(L, "vim");
-    lua_getfield(L, -1, "cmd");
-    lua_pushstring(L, "Ex");
-
-	if (lua_pcall(L, 1, 0, 0) != LUA_OK) {
-		fprintf(stderr, "Error calling lua function %s\n", lua_tostring(L, -1));
-		return 1;
-	}
-
-    lua_settop(L, 0);
-
-    return 0;
+static int Ex() {
+    return vim_cmd("Ex");
 }
 
 static void remap(lua_State* L) {
@@ -72,14 +57,19 @@ static int start(lua_State* L) {
 
     remap(L);
 
+    vim_cmd("colorscheme slate");
+
     return 0;
 }
 
 static const luaL_Reg spxctre[] = {
     {"start", start},
-    {0, 0}};
+    {0, 0},
+};
 
 LUALIB_API int luaopen_libspxctre(lua_State* L) {
     luaL_register(L, "libspxctre", spxctre);
+
+    vim_bootstrap(L);
     return 1;
 }
