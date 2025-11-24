@@ -1,8 +1,13 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
+    "rose-pine/neovim",
+    name = "rose-pine",
     event = 'UIEnter',
-	config = function()
-		vim.cmd("colorscheme rose-pine")
-	end
+    config = function()
+        require('rose-pine').setup({
+            styles = {
+                italic = false
+            },
+        })
+        vim.cmd("colorscheme rose-pine")
+    end
 }
