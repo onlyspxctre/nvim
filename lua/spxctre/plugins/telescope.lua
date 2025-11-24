@@ -4,7 +4,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = 'VeryLazy',
     config = function(_, opts)
-        telescope = require('telescope.builtin')
+        local telescope = require('telescope.builtin')
 
         -- Grepping --
         vim.keymap.set('n', '<leader>pf', telescope.find_files)
