@@ -1,7 +1,10 @@
 return {
     'nvim-telescope/telescope.nvim',
     tag = 'v0.1.9',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = { 
+        'nvim-lua/plenary.nvim',
+        'nvim-tree/nvim-web-devicons',
+    },
     event = 'VeryLazy',
     config = function(_, opts)
         local telescope = require('telescope.builtin')
