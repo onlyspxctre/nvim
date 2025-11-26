@@ -12,6 +12,7 @@ return {
 
         -- basic telescope configuration
         local conf = require("telescope.config").values
+
         local function toggle_telescope(harpoon_files)
             local file_paths = {}
             for _, item in ipairs(harpoon_files.items) do
@@ -30,5 +31,9 @@ return {
 
         vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add mark to harpoon" })
         vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+
+        vim.api.nvim_create_user_command("Harpoon", function() toggle_telescope(harpoon:list()) end, {
+            desc = "Open harpoon"
+        });
     end
 }

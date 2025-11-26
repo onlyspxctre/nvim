@@ -4,6 +4,8 @@ local function items()
 
         { action = 'Telescope find_files', name = 'find_files', section = 'Telescope' },
         { action = 'Telescope live_grep',  name = 'live_grep',  section = 'Telescope' },
+
+        { action = 'Harpoon',  name = 'harpoon',  section = 'Harpoon' },
     }
 end
 
