@@ -37,6 +37,12 @@ return {
             }
         })
 
+        vim.diagnostic.config({
+            float = {
+                border = "rounded",
+            }
+        })
+
         -- Lua --
         vim.lsp.enable('lua_ls')
 
@@ -48,5 +54,8 @@ return {
         vim.lsp.enable('ts_ls')
         vim.lsp.enable('svelte')
         vim.lsp.enable('tailwindcss')
+
+        -- Shit language --
+        vim.lsp.enable('pyright')
     end
 }
