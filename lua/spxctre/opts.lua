@@ -23,6 +23,8 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
+vim.opt.splitbelow = true
+
 -- Netrw --
 
 vim.g.netrw_keepdir = 0 -- fixes netrw fucking with the jump list probably
