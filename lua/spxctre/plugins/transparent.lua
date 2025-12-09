@@ -11,5 +11,7 @@ return {
     },
     config = function(_, opts)
         require('transparent').setup(opts)
+
+        vim.keymap.set('n', '<leader>pt', [[:TransparentToggle<CR>]], { silent = true })
     end
 }
