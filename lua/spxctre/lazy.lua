@@ -20,7 +20,18 @@ require('lazy').setup({
 	performance = {
 		rtp = {
 			disabled_plugins = {
-				'tutor'
+                'gzip',
+                'tarPlugin',
+                'zipPlugin',
+                -- 'matchit',
+                'matchparen',
+				'tutor',
+                'tohtml',
+                -- unstable --
+                'shada',
+                'rplugin',
+                'editorconfig',
+                'spellfile',
 			},
 		},
 	},

@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 require('spxctre.remap')
 require('spxctre.opts')
 

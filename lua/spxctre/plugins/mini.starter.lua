@@ -11,6 +11,7 @@ end
 
 return {
     'nvim-mini/mini.starter',
+    enabled = false,
     version = false,
     event = 'UIEnter',
     config = function(_)
