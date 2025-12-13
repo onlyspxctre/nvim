@@ -1,5 +1,6 @@
 return {
     'tribela/transparent.nvim',
+    enabled = false,
     event = 'VeryLazy',
     opts = {
         auto = true,
