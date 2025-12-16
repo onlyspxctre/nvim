@@ -1,7 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
-    tag = 'v0.1.9',
-    dependencies = { 
+    dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-tree/nvim-web-devicons',
     },
