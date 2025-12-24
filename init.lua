@@ -11,3 +11,11 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.defer_fn(function() pcall(vim.treesitter.start) end, 15)
     end,
 })
+
+vim.api.nvim_create_autocmd({ 'ColorScheme', 'UIEnter' }, {
+    callback = function()
+        vim.api.nvim_set_hl(0, 'Pmenu', {
+            link = 'Normal'
+        })
+    end
+})
