@@ -1,6 +1,6 @@
 return {
     'onlyspxctre/gruber-darker.nvim',
-    event = 'UIEnter',
+    event = 'VeryLazy',
     config = function()
         require('gruber-darker').setup({
             italic = {
@@ -10,6 +10,5 @@ return {
                 folds = false,
             },
         })
-        vim.cmd 'colorscheme gruber-darker'
     end
 }
