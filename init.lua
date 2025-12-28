@@ -4,6 +4,7 @@ require('spxctre.remap')
 require('spxctre.opts')
 
 require('spxctre.lazy')
+require('spxctre.neovide')
 
 vim.api.nvim_create_autocmd('FileType', {
     pattern = require('spxctre.treesitter').parsers,
