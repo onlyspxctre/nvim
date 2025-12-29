@@ -17,6 +17,9 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 
+vim.opt.list = true
+vim.opt.listchars:append('lead:·,trail:·')
+
 vim.opt.fillchars:append('eob: ') -- get rid of trailing ~
 vim.opt.isfname:append("@-@") -- treat @ as a valid filename ig?
 vim.opt.shortmess:append('I') -- do not show welcome message
