@@ -32,6 +32,8 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- Dehighlight --
 vim.keymap.set('n', '<Esc>', ':noh<CR>', { silent = true })
 
+-- Toggle Line Wrap
+vim.keymap.set('n', '<leader>t', ':set wrap!<CR>', { silent = true })
 
 -- get rid of something annoying --
 vim.keymap.set('n', 'Q', '<nop>')
