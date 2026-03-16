@@ -27,7 +27,7 @@ vim.opt.shortmess:append('I') -- do not show welcome message
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-vim.opt.shadafile = 'NONE'
+-- vim.opt.shadafile = 'NONE'
 
 vim.opt.splitbelow = true
 

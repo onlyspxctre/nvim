@@ -29,7 +29,6 @@ require('lazy').setup({
                 'tohtml',
                 -- unstable --
                 'netrwPlugin',
-                'shada',
                 'rplugin',
                 'editorconfig',
                 'spellfile',
