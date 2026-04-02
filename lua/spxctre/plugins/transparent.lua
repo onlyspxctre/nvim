@@ -1,13 +1,12 @@
 return {
     'tribela/transparent.nvim',
-    enabled = false,
-    event = 'VeryLazy',
+    event = 'UIEnter',
     opts = {
         auto = true,
         extra_groups = {
             'NormalFloat', 'FloatBorder',
             'TelescopeNormal', 'TelescopeBorder',
-            'Pmenu',
+            'Pmenu','StatusLine','StatusLineNC'
         },
     },
     config = function(_, opts)
