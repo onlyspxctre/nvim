@@ -1,5 +1,4 @@
 return {
-    'https://github.com/morhetz/gruvbox.git',
+    'ellisonleao/gruvbox.nvim',
     event = 'VeryLazy',
 }
-

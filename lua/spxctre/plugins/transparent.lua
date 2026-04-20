@@ -4,9 +4,10 @@ return {
     opts = {
         auto = true,
         extra_groups = {
-            'NormalFloat', 'FloatBorder',
+            'NormalFloat', 'FloatBorder', 'FloatShadow',
             'TelescopeNormal', 'TelescopeBorder',
-            'Pmenu','StatusLine','StatusLineNC'
+            'Pmenu','StatusLine','StatusLineNC',
+            'StatusLineTerm', 'StatusLineNC'
         },
     },
     config = function(_, opts)
