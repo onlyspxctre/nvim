@@ -4,8 +4,8 @@ vim.g.mapleader = ' '
 -- Netrw --
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
-vim.keymap.set('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
-vim.keymap.set('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
+vim.keymap.set('n', 'j', 'gj', { silent = true })
+vim.keymap.set('n', 'k', 'gk', { silent = true })
 
 -- Moving Selected Line --
 vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
@@ -49,11 +49,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end, opts)
         vim.keymap.set("n", "gd", function()
-            if vim.bo.filetype == 'tex' then
-                require('knap').forward_jump()
-            else
-                vim.lsp.buf.definition()
-            end
+            vim.lsp.buf.definition()
         end, opts)
         vim.keymap.set("n", "gi", function()
             vim.lsp.buf.implementation()
@@ -76,8 +72,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>.", function()
             vim.lsp.buf.code_action()
         end, opts)
-        vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format()
-        end, opts) -- Code formatting
     end,
 })
