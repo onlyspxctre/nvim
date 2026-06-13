@@ -6,7 +6,6 @@ return {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope.nvim'
     },
-    enabled = false,
     config = function()
         local harpoon = require('harpoon')
         harpoon:setup({})
@@ -31,7 +30,12 @@ return {
         end
 
         vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add mark to harpoon" })
-        vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+        vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list(), {
+            border = "rounded",
+            title_pos = "center",
+            ui_width_ratio = 0.6,
+        }) end)
+        -- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
 
         vim.api.nvim_create_user_command("Harpoon", function() toggle_telescope(harpoon:list()) end, {
             desc = "Open harpoon"
