@@ -37,6 +37,16 @@ return {
             }
         })
 
+        -- vim.lsp.config('texlab', {
+        --     settings = {
+        --         texlab = {
+        --             build = {
+        --                 onSave = true,
+        --             }
+        --         }
+        --     }
+        -- })
+
         vim.diagnostic.config({
             float = {
                 border = "rounded",
@@ -57,5 +67,9 @@ return {
 
         -- Shit language --
         vim.lsp.enable('pyright')
+        vim.lsp.enable('rust_analyzer')
+
+        -- LaTeX --
+        -- vim.lsp.enable('texlab')
     end
 }
