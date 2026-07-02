@@ -37,6 +37,17 @@ return {
             }
         })
 
+        vim.lsp.config('clangd', {
+            cmd = {
+                'clangd',
+                '--background-index',
+                '--clang-tidy',
+                '--function-arg-placeholders=0',
+                '--enable-config',
+                '--query-driver=/**/.espressif/tools/**/*gcc,/**/.espressif/tools/**/*g++'
+            }
+        })
+
         -- vim.lsp.config('texlab', {
         --     settings = {
         --         texlab = {
