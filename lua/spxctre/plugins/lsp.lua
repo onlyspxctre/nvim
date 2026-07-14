@@ -74,7 +74,10 @@ return {
         -- Web --
         vim.lsp.enable('ts_ls')
         vim.lsp.enable('svelte')
-        vim.lsp.enable('tailwindcss')
+
+        if vim.fn.executable('tailwindcss-language-server') == 1 then
+            vim.lsp.enable('tailwindcss')
+        end
 
         -- Shit language --
         vim.lsp.enable('pyright')
