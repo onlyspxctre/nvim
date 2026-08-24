@@ -15,6 +15,7 @@ return {
         formatters_by_ft = {
             tex = { "tex-fmt" },
             latex = { "tex-fmt" },
+            python = { "ruff" }
         },
         default_format_opts = {
             lsp_format = 'fallback',
