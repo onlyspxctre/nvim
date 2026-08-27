@@ -15,7 +15,19 @@ return {
         formatters_by_ft = {
             tex = { "tex-fmt" },
             latex = { "tex-fmt" },
-            python = { "ruff" }
+            python = { "ruff" },
+
+            javascript = { "prettier" },
+            typescript = { "prettier" },
+            javascriptreact = { "prettier" },
+            typescriptreact = { "prettier" },
+            svelte = { "prettier" },
+            css = { "prettier" },
+            html = { "prettier" },
+            json = { "prettier" },
+            yaml = { "prettier" },
+            markdown = { "prettier" },
+            graphql = { "prettier" },
         },
         default_format_opts = {
             lsp_format = 'fallback',
