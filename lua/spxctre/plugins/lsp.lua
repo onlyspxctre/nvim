@@ -82,6 +82,7 @@ return {
         -- Shit language --
         vim.lsp.enable('pyright')
         vim.lsp.enable('rust_analyzer')
+        vim.lsp.enable('hls')
 
         -- LaTeX --
         -- vim.lsp.enable('texlab')
