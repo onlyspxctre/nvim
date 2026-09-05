@@ -5,6 +5,13 @@ return {
         'nvim-tree/nvim-web-devicons',
     },
     event = 'VeryLazy',
+    opts = {
+        defaults = {
+            preview = {
+                treesitter = false,
+            }
+        }
+    },
     config = function(_, opts)
         local telescope = require('telescope.builtin')
 
@@ -18,5 +25,7 @@ return {
         -- Documentation --
         vim.keymap.set('n', '<leader>pd', telescope.man_pages)
         vim.keymap.set('n', '<leader>ph', telescope.help_tags)
+
+        require('telescope').setup(opts)
     end
 }
