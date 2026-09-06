@@ -1,7 +1,7 @@
 return {
     "rose-pine/neovim",
     name = "rose-pine",
-    event = 'UIEnter',
+    event = 'VeryLazy',
     config = function()
         require('rose-pine').setup({
             styles = {
@@ -10,6 +10,6 @@ return {
             },
         })
 
-        vim.cmd.colorscheme 'rose-pine-main'
+        -- vim.cmd.colorscheme 'rose-pine-main'
     end
 }
