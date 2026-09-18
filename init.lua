@@ -1,33 +1,60 @@
-vim.loader.enable()
-
-require('spxctre.remap')
 require('spxctre.opts')
+require('spxctre.remap')
 
-require('spxctre.lazy')
-require('spxctre.neovide')
+vim.pack.add({'https://github.com/lumen-oss/lz.n'})
 
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'qf' },
-    callback = function(ev)
-        vim.defer_fn(function()
-            vim.api.nvim_set_current_win(vim.fn.win_findbuf(ev.buf)[1])
-        end, 5) -- deferred to make sure autocmd catches the window init after init has finished
-    end
-})
+--- @type lz.n.pack.Spec[]
+local plugins = {
+    {
+        src = 'https://github.com/rose-pine/neovim',
+        data = {
+            colorscheme = "rose-pine-main",
+            after = function()
+                require('rose-pine').setup({
+                    styles = {
+                        italic = false,
+                        transparency = true
+                    }
+                })
+            end
+        }
+    },
+    {
+        src = 'https://github.com/nvim-mini/mini.pick',
+        data = {
+            event = 'DeferredUIEnter',
+            after = function()
+                local pick = require('mini.pick')
 
-vim.api.nvim_create_autocmd({ 'ColorScheme', 'UIEnter' }, {
-    callback = function()
-        vim.api.nvim_set_hl(0, 'Pmenu', {
-            link = 'Normal'
-        })
-        vim.api.nvim_set_hl(0, 'NormalFloat', {
-            link = 'Normal'
-        })
-        vim.api.nvim_set_hl(0, 'FloatBorder', {
-            link = 'Normal'
-        })
-        vim.api.nvim_set_hl(0, 'TelescopeBorder', {
-            link = 'Normal'
-        })
-    end
-})
+                vim.keymap.set('n', '<leader>pf', pick.builtin.files)
+
+                pick.setup({
+                    options = {
+                        content_from_bottom = true,
+                        use_cache = true,
+                    },
+                    window = {
+                        config = function()
+                            -- normalize window position to  center
+                            local height = math.floor(0.75 * vim.o.lines)
+                            local width = math.floor(0.8 * vim.o.columns)
+
+                            if ((vim.o.lines - height) % 2 == 1) then height = height + 1 end
+                            if ((vim.o.columns - width) % 2 == 1) then width = width + 1 end
+                            return {
+                              anchor = 'NW', height = height, width = width,
+                              row = math.floor(0.5 * (vim.o.lines - height)) - 1,
+                              col = math.floor(0.5 * (vim.o.columns - width)) - 1,
+                            }
+                        end,
+                    }
+                })
+            end
+        }
+    },
+    require('spxctre.plugins.lsp'),
+    require('spxctre.plugins.blink'),
+}
+
+vim.pack.add(plugins, { load = require('lz.n').load })
+vim.cmd.colorscheme 'rose-pine-main'

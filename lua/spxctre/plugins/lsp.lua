@@ -1,90 +1,27 @@
 return {
-    'https://github.com/neovim/nvim-lspconfig',
-    event = 'VeryLazy',
-    config = function()
-        vim.lsp.config('lua_ls', {
-            on_init = function(client)
-                if client.workspace_folders then
-                    local path = client.workspace_folders[1].name
-                    if
-                        path ~= vim.fn.stdpath('config')
-                        and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
-                    then
-                        return
-                    end
-                end
+    src = 'https://github.com/neovim/nvim-lspconfig',
+    data = {
+        event = 'DeferredUIEnter',
+        after = function()
+            vim.lsp.config('clangd', {
+                cmd = {
+                    'clangd',
+                    '--background-index',
+                    '--clang-tidy',
+                    '--function-arg-placeholders=0',
+                    '--enable-config',
+                    '--query-driver=/**/.espressif/tools/**/*gcc,/**/.espressif/tools/**/*g++'
+                }
+            })
 
-                client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                    runtime = {
-                        version = 'LuaJIT',
-                        path = {
-                            'lua/?.lua',
-                            'lua/?/init.lua',
-                        },
-                    },
-                    workspace = {
-                        checkThirdParty = false,
-                        library = {
-                            vim.env.VIMRUNTIME,
-                            '${3rd}/luv/library',
-                            '${3rd}/busted/library',
-                        },
-                    }
-                })
-            end,
-            settings = {
-                Lua = {}
-            }
-        })
+            vim.diagnostic.config({
+                float = {
+                    border = "rounded",
+                }
+            })
 
-        vim.lsp.config('clangd', {
-            cmd = {
-                'clangd',
-                '--background-index',
-                '--clang-tidy',
-                '--function-arg-placeholders=0',
-                '--enable-config',
-                '--query-driver=/**/.espressif/tools/**/*gcc,/**/.espressif/tools/**/*g++'
-            }
-        })
-
-        -- vim.lsp.config('texlab', {
-        --     settings = {
-        --         texlab = {
-        --             build = {
-        --                 onSave = true,
-        --             }
-        --         }
-        --     }
-        -- })
-
-        vim.diagnostic.config({
-            float = {
-                border = "rounded",
-            }
-        })
-
-        -- Lua --
-        vim.lsp.enable('lua_ls')
-
-        -- C --
-        vim.lsp.enable('clangd')
-        vim.lsp.enable('cmake')
-
-        -- Web --
-        vim.lsp.enable('ts_ls')
-        vim.lsp.enable('svelte')
-
-        if vim.fn.executable('tailwindcss-language-server') == 1 then
-            vim.lsp.enable('tailwindcss')
+            vim.lsp.enable('clangd')
+            vim.lsp.enable('lua_ls')
         end
-
-        -- Shit language --
-        vim.lsp.enable('pyright')
-        vim.lsp.enable('rust_analyzer')
-        vim.lsp.enable('hls')
-
-        -- LaTeX --
-        -- vim.lsp.enable('texlab')
-    end
+    }
 }
