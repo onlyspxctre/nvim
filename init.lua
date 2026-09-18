@@ -27,6 +27,7 @@ local plugins = {
                 local pick = require('mini.pick')
 
                 vim.keymap.set('n', '<leader>pf', pick.builtin.files)
+                vim.keymap.set('n', '<leader>ps', pick.builtin.grep_live)
 
                 pick.setup({
                     options = {
