@@ -1,3 +1,9 @@
+# spxctre/nvim
+
+My legendary Neovim configuration. It is very minimal.
+> [!NOTE]
+> This is a soft rewrite to switch to `vim.pack`, introduced in v0.12. It is incompatible with older versions of Neovim.
+
 ## Remaps
 
 Custom remaps will be documented here.
