@@ -20,39 +20,46 @@ local plugins = {
         }
     },
     {
-        src = 'https://github.com/nvim-mini/mini.pick',
+        src = 'https://github.com/stevearc/conform.nvim',
         data = {
             event = 'DeferredUIEnter',
             after = function()
-                local pick = require('mini.pick')
+                local conform = require('conform')
+                vim.keymap.set('n', '<leader>f', function()
+                    conform.format({ async = true })
+                end)
 
-                vim.keymap.set('n', '<leader>pf', pick.builtin.files)
-                vim.keymap.set('n', '<leader>ps', pick.builtin.grep_live)
+                conform.setup({
+                    formatters_by_ft = {
+                        tex = { "tex-fmt" },
+                        latex = { "tex-fmt" },
+                        python = { "ruff" },
 
-                pick.setup({
-                    options = {
-                        content_from_bottom = true,
-                        use_cache = true,
+                        javascript = { "prettier" },
+                        typescript = { "prettier" },
+                        javascriptreact = { "prettier" },
+                        typescriptreact = { "prettier" },
+                        svelte = { "prettier" },
+                        css = { "prettier" },
+                        html = { "prettier" },
+                        json = { "prettier" },
+                        yaml = { "prettier" },
+                        markdown = { "prettier" },
+                        graphql = { "prettier" },
                     },
-                    window = {
-                        config = function()
-                            -- normalize window position to  center
-                            local height = math.floor(0.75 * vim.o.lines)
-                            local width = math.floor(0.8 * vim.o.columns)
-
-                            if ((vim.o.lines - height) % 2 == 1) then height = height + 1 end
-                            if ((vim.o.columns - width) % 2 == 1) then width = width + 1 end
-                            return {
-                              anchor = 'NW', height = height, width = width,
-                              row = math.floor(0.5 * (vim.o.lines - height)) - 1,
-                              col = math.floor(0.5 * (vim.o.columns - width)) - 1,
-                            }
-                        end,
+                    default_format_opts = {
+                        lsp_format = 'fallback',
+                    },
+                    formatters = {
+                        tex_fmt = {
+                            append_args = { "--wrap-len", "80"}
+                        }
                     }
                 })
             end
-        }
+        },
     },
+    require('spxctre.plugins.minipick'),
     require('spxctre.plugins.lsp'),
     require('spxctre.plugins.blink'),
 }
