@@ -16,6 +16,8 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 vim.opt.wrap = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.list = true
 vim.opt.listchars:append('lead:·,trail:·')
