@@ -22,6 +22,9 @@ return {
 
             vim.lsp.enable('clangd')
             vim.lsp.enable('lua_ls')
+
+            -- shit languages
+            vim.lsp.enable('jdtls')
         end
     }
 }
