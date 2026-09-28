@@ -1,7 +1,7 @@
 require('spxctre.opts')
 require('spxctre.remap')
 
-vim.pack.add({'https://github.com/lumen-oss/lz.n'})
+vim.pack.add({ 'https://github.com/lumen-oss/lz.n' })
 
 --- @type lz.n.pack.Spec[]
 local plugins = {
@@ -52,7 +52,7 @@ local plugins = {
                     },
                     formatters = {
                         tex_fmt = {
-                            append_args = { "--wrap-len", "80"}
+                            append_args = { "--wrap-len", "80" }
                         }
                     }
                 })
@@ -62,6 +62,29 @@ local plugins = {
     require('spxctre.plugins.minipick'),
     require('spxctre.plugins.lsp'),
     require('spxctre.plugins.blink'),
+    {
+        src = 'https://github.com/yilisharcs/cme.nvim',
+        data = {
+            event = 'DeferredUIEnter',
+            after = function()
+                vim.keymap.set('n', '<leader>mx', function()
+                    vim.ui.input({
+                        prompt = 'Command: ',
+                        default = vim.g.cme_last_cmd or 'make -k',
+                    }, function(input)
+                        if input == '' or input == nil then
+                            vim.defer_fn(function()
+                                vim.cmd.echon('""')
+                            end, 1)
+                            return
+                        end
+
+                        vim.cmd('Compile ' .. input)
+                    end)
+                end)
+            end
+        },
+    },
 }
 
 vim.pack.add(plugins, { load = require('lz.n').load })
