@@ -1,5 +1,6 @@
 require('spxctre.opts')
 require('spxctre.remap')
+require('spxctre.autocmd')
 
 vim.pack.add({ 'https://github.com/lumen-oss/lz.n' })
 
