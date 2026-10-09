@@ -96,7 +96,9 @@ local plugins = {
 
                 vim.keymap.set('n', '<leader>pg', function()
                     lazydiff.toggle()
-                end)
+                end, { desc = 'Toggle Lazydiff' })
+                vim.keymap.set('n', ']h', '<cmd>LazydiffNext<cr>',  { desc = 'Next lazydiff hunk' })
+                vim.keymap.set('n', '[h', '<cmd>LazydiffPrev<cr>',  { desc = 'Prev lazydiff hunk' })
 
                 lazydiff.setup()
             end
