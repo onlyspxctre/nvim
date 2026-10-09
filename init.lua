@@ -34,6 +34,7 @@ local plugins = {
                     formatters_by_ft = {
                         tex = { "tex-fmt" },
                         latex = { "tex-fmt" },
+
                         python = { "ruff" },
 
                         javascript = { "prettier" },
@@ -86,6 +87,21 @@ local plugins = {
             end
         },
     },
+    {
+        src = 'https://github.com/rashedInt32/lazydiff.nvim',
+        data = {
+            event = 'DeferredUIEnter',
+            after = function()
+                local lazydiff = require('lazydiff')
+
+                vim.keymap.set('n', '<leader>pg', function()
+                    lazydiff.toggle()
+                end)
+
+                lazydiff.setup()
+            end
+        }
+    }
 }
 
 vim.pack.add(plugins, { load = require('lz.n').load })
