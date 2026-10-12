@@ -7,6 +7,10 @@ return {
                 cmd = {
                     'clangd',
                     '--background-index',
+                    '--pch-storage=memory',         -- store precompiled headers in RAM
+                    '--malloc-trim',                -- release unused memory back to OS
+                    '--limit-results=50',           -- limit autocomplete suggestions
+                    '--header-insertion=never',     -- disable heavy on-the-fly header insertion
                     '--clang-tidy',
                     '--function-arg-placeholders=0',
                     '--enable-config',
