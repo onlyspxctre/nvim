@@ -2,6 +2,9 @@ return {
     src = 'https://github.com/nvim-mini/mini.pick',
     data = {
         event = 'DeferredUIEnter',
+        before = function()
+            require('lz.n').trigger_load('nvim-web-devicons')
+        end,
         after = function()
             local pick = require('mini.pick')
 
