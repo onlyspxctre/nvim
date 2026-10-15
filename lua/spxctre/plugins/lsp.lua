@@ -29,6 +29,8 @@ return {
 
             -- shit languages
             vim.lsp.enable('jdtls')
+            vim.lsp.enable('pyright')
+            vim.lsp.enable('ts_ls')
         end
     }
 }
