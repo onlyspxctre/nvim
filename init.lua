@@ -21,6 +21,12 @@ local plugins = {
         }
     },
     {
+        src = 'https://github.com/nvim-tree/nvim-web-devicons',
+        data = {
+            event = 'DeferredUIEnter'
+        },
+    },
+    {
         src = 'https://github.com/stevearc/conform.nvim',
         data = {
             event = 'DeferredUIEnter',
