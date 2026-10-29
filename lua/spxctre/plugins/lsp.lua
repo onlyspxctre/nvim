@@ -26,6 +26,7 @@ return {
 
             vim.lsp.enable('clangd')
             vim.lsp.enable('lua_ls')
+            vim.lsp.enable('gopls')
 
             -- shit languages
             vim.lsp.enable('jdtls')
