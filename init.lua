@@ -109,7 +109,17 @@ local plugins = {
                 lazydiff.setup()
             end
         }
-    }
+    },
+    {
+        src = 'https://github.com/Meanderingprogrammer/render-markdown.nvim',
+        data = {
+            event = 'DeferredUIEnter',
+            ft = 'markdown',
+            after = function()
+                require('render-markdown').setup({})
+            end
+        }
+    },
 }
 
 vim.pack.add(plugins, { load = require('lz.n').load })
