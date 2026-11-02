@@ -18,6 +18,14 @@ return {
                 }
             })
 
+            vim.lsp.config('sourcekit', {
+                filetypes = {
+                    'swift',
+                    'objective-c',
+                    'objective-cpp'
+                }
+            })
+
             vim.diagnostic.config({
                 float = {
                     border = "rounded",
@@ -26,7 +34,7 @@ return {
 
             vim.lsp.enable('clangd')
             vim.lsp.enable('lua_ls')
-            vim.lsp.enable('gopls')
+            vim.lsp.enable('sourcekit')
 
             -- shit languages
             vim.lsp.enable('jdtls')
