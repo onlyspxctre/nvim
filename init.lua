@@ -38,6 +38,9 @@ local plugins = {
 
                 conform.setup({
                     formatters_by_ft = {
+                        c = { "clang_format" },
+                        cpp = { "clang_format" },
+
                         tex = { "tex-fmt" },
                         latex = { "tex-fmt" },
 
@@ -59,6 +62,9 @@ local plugins = {
                         lsp_format = 'fallback',
                     },
                     formatters = {
+                        clang_format = {
+                            args = { "--style=file:" .. os.getenv("HOME") .. "/.clang-format" }
+                        },
                         tex_fmt = {
                             append_args = { "--wrap-len", "80" }
                         }
