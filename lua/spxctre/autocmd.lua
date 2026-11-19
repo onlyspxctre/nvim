@@ -5,3 +5,12 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.opt_local.linebreak = true
     end
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {
+        'elixir'
+    },
+    callback = function()
+        vim.defer_fn(vim.treesitter.start, 50)
+    end
+})

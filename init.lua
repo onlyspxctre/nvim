@@ -21,6 +21,19 @@ local plugins = {
         }
     },
     {
+        src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+        data = {
+            event = 'DeferredUIEnter',
+            after =function()
+                local treesitter = require('nvim-treesitter')
+
+                treesitter.install {
+                    'elixir'
+                }
+            end
+        }
+    },
+    {
         src = 'https://github.com/nvim-tree/nvim-web-devicons',
         data = {
             event = 'DeferredUIEnter'
